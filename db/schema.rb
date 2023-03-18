@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_18_131423) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_18_132142) do
   create_table "stocks", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -27,6 +27,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_18_131423) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "wallets", force: :cascade do |t|
+    t.integer "walletable_id"
+    t.string "walletable_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["walletable_type", "walletable_id"], name: "index_wallets_on_walletable_type_and_walletable_id", unique: true
   end
 
 end
