@@ -21,7 +21,7 @@
     - Source wallet (belongs to a wallet)
     - Target wallet (belongs to a wallet)
     - Amount (required)
-- [ ] Implement proper calculations for transaction kinds and wallet actions:
+- [x] Implement proper calculations for transaction kinds and wallet actions:
   * Deposit:
     - Amount without source wallet
   * Withdraw:

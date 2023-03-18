@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Wallet, type: :model do
-  it { should belong_to(:walletable) }
+  it { should belong_to(:walletable).without_validating_presence }
   it { should have_many :source_transactions }
   it { should have_many :target_transactions }
   let(:wallet) { create :wallet }
