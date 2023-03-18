@@ -22,4 +22,17 @@ RSpec.describe Transaction, type: :model do
     expect(transaction.source).to be_nil
     expect(transaction.target).to be_nil
   end
+
+  it 'kind: returns transaction kind' do
+    wallet_first = create :wallet
+    wallet_second = create :wallet
+    transaction = create :transaction, source_id: wallet_first.id, target_id: wallet_second.id
+    expect(transaction.kind).to eq :transfer
+
+    transaction = create :transaction, source_id: nil, target_id: wallet_second.id
+    expect(transaction.kind).to eq :deposit
+
+    transaction = create :transaction, source_id: wallet_first.id, target_id: nil
+    expect(transaction.kind).to eq :withdraw
+  end
 end
