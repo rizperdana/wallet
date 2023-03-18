@@ -10,7 +10,7 @@
 ## To Do:
 - [x] Initialize the Rails application.
 - [x] Initialize the testing environment with RSpec and Guard.
-- [ ] Create the following models with the specified attributes and associations:
+- [x] Create the following models with the specified attributes and associations:
   * Users, Stocks, and Teams:
     - Name (required)
     - One wallet (through a polymorphic association using the STI pattern)

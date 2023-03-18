@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :wallet do
-    wallatable_id { }
-    wallatable_type { }
+    association :walletable, factory: :user
   end
 end
