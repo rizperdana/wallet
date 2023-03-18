@@ -4,10 +4,22 @@ RSpec.describe Transaction, type: :model do
   it { should have_one :source }
   it { should have_one :target }
   it { should validate_presence_of :amount }
+  it { should validate_numericality_of(:amount).is_greater_than 0 }
+
+  it 'should validate amount to be equal or greater from balance' do
+    amount_first = Faker::Number.decimal(l_digits: 3)
+    amount_second = Faker::Number.decimal(l_digits: 3)
+    wallet_first = create :wallet
+    wallet_first.deposit amount_first
+    transaction = wallet_first.withdraw amount_first + amount_second
+
+    expect(transaction.errors).to be_any
+    expect(transaction.errors[:amount]).to include('should be equal or greater than actual balance')
+  end
 
   it 'should connect source/target with wallet' do
-    wallet_source = create :wallet
-    wallet_target = create :wallet
+    wallet_source = create :wallet, :with_balance
+    wallet_target = create :wallet, :with_balance
     transaction = create :transaction, source_id: wallet_source.id, target_id: wallet_target.id
 
     expect(transaction.source).to eq wallet_source
@@ -24,8 +36,8 @@ RSpec.describe Transaction, type: :model do
   end
 
   it 'kind: returns transaction kind' do
-    wallet_first = create :wallet
-    wallet_second = create :wallet
+    wallet_first = create :wallet, :with_balance
+    wallet_second = create :wallet, :with_balance
     transaction = create :transaction, source_id: wallet_first.id, target_id: wallet_second.id
     expect(transaction.kind).to eq :transfer
 
