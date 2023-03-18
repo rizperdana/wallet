@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root to: "wallets#index"
-  resources :wallets, only: [:index, :new]
+  resources :users, only: %i(new create)
+  resources :teams, only: %i(new create)
+  resources :stocks, only: %i(new create)
+  resources :wallets, only: %i(index new create)
+  resources :transactions, only: %i(new create)
 end
