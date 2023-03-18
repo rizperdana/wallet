@@ -1,0 +1,21 @@
+{
+  "name": "wallet",
+  "version": "0.1.0",
+  "dependencies": {
+    "@rails/actioncable": "^6.0.0-alpha",
+    "@rails/activestorage": "^6.0.0-alpha",
+    "@rails/ujs": "^6.0.0-alpha",
+    "@rails/webpacker": "5.4.4",
+    "bootstrap": "^4.3.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0",
+    "stimulus": "^1.1.1",
+    "turbolinks": "^5.2.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3"
+  }
+}
