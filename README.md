@@ -43,3 +43,13 @@
     - Show: displays balance and transactions
   * Transactions:
     - Deposit/Withdraw/Transfer.
+
+Run this example:
+```bash
+git clone git@github.com:rizperdana/wallet.git
+cd wallet/
+bundle
+yarn install --check-files
+rails db:migrate RAILS_ENV=development
+rails s
+```

@@ -1,6 +1,12 @@
 class TransactionsController < ApplicationController
+  def index
+    @wallet = Wallet.find params[:wallet_id]
+    @transactions = @wallet.transactions
+    render partial: 'index'
+  end
+
   def new
-    @transactions = Transaction.new
+    @transaction = Transaction.new
     @kind = params[:kind]
     render partial: 'form'
   end
@@ -13,7 +19,7 @@ class TransactionsController < ApplicationController
       render partial: 'wallets/index'
     else
       @kind = @transaction.kind
-      render partia: 'form', status: :unprocessable_entity
+      render partial: 'form', status: :unprocessable_entity
     end
   end
 
