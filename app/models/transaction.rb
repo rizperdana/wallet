@@ -12,7 +12,7 @@ class Transaction < ApplicationRecord
   end
 
   def balance_cannot_negative
-    if source && (source.balance < amount)
+    if source && amount.present? && (source.balance < amount)
       errors.add :amount, 'should be equal or greater than actual balance'
     end
   end

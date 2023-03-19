@@ -20,4 +20,8 @@ class Wallet < ApplicationRecord
   def transfer_to(wallet, amount:)
     source_transactions.create amount: amount, target_id: wallet.id
   end
+
+  def to_s
+    "#{walletable.name} (##{id})"
+  end
 end

@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   def create
     @owner = User.new(user_params)
     save_and_render_owner

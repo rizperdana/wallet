@@ -1,4 +1,4 @@
-class StockController < ApplicationController
+class StocksController < ApplicationController
   def create
     @owner = Stock.new(user_params)
     save_and_render_owner

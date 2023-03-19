@@ -36,7 +36,7 @@
     - Before creating a transaction, amount should be less than or equal to the source wallet's actual balance
 - [x] On Users/Stocks/Teams creation, create a wallet for each.
 - [x] Initialize the frontend with StimulusJS, Bootstrap, and FontAwesome.
-- [ ] Implement the following frontend views and actions:
+- [x] Implement the following frontend views and actions:
   * Wallet:
     - List owners
     - Create owner: creates Users/Stocks/Teams with a name
